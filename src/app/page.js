@@ -1,8 +1,6 @@
 "use client";
-
-import CustomizationPanel from "../components/CustomizationPanel/CustomizationPanel";
-import ResumePreview from "../components/ResumePreview/ResumePreview";
-import DownloadResume from "../components/DownloadResume/DownloadResume";
+import TextEditor from "@/components/TextEditor/TextEditor";
+import DownloadResume from "@/components/DownloadResume/DownloadResume";
 
 export default function Page() {
   return (
@@ -11,10 +9,8 @@ export default function Page() {
         <h1 className="text-3xl font-bold my-4">Resume Builder</h1>
 
         <div className="flex items-center justify-between">
-          <CustomizationPanel />
-          <div>
-            <DownloadResume />
-          </div>
+          <TextEditor />
+          <DownloadResume />
         </div>
       </div>
     </>

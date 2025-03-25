@@ -1,19 +1,31 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { jsPDF } from "jspdf";
 import ResumePreview from "../ResumePreview/ResumePreview";
 
 const DownloadResume = () => {
   const ref = React.createRef();
 
-  // Function to generate the PDF
+  const [currentState, setCurrentState] = useState({
+    fontSize: "16px",
+    fontWeight: "normal",
+    color: "black",
+    text: "Hello, world!",
+    fontFamily: "Arial",
+    margin: 0,
+    padding: 0,
+  });
+
+  // Define the updateState function
+  const updateState = (newState) => {
+    setCurrentState(newState);
+  };
+
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Add content to the PDF
     doc.html(ref.current, {
       callback: function (doc) {
-        // Download the generated PDF as 'resume.pdf'
         doc.save("resume.pdf");
       },
       margin: [10, 10, 10, 10],
@@ -22,16 +34,15 @@ const DownloadResume = () => {
 
   return (
     <div>
-      {/* Pass the ref to the ResumePreview component */}
       <div ref={ref}>
-        <ResumePreview />
+        {/* Pass updateState function here */}
+        <ResumePreview currentState={currentState} updateState={updateState} />
       </div>
 
-      {/* Button to trigger PDF download */}
       <button
         type="button"
         className="mt-4 bg-green-500 text-white py-2 px-4 cursor-pointer"
-        onClick={generatePDF} // Call the function when the button is clicked
+        onClick={generatePDF}
       >
         Download PDF
       </button>

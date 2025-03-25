@@ -1,0 +1,45 @@
+Basic Commands
+git init – Initialize a new Git repository
+git clone <repo_url> – Clone a remote repository
+git status – Check the status of the working directory
+git add <file> – Stage changes for commit
+git add . – Stage all changes
+git commit -m "Your commit message" – Commit staged changes
+
+Branching & Merging
+git branch – List all branches
+git branch <branch_name> – Create a new branch
+git checkout <branch_name> – Switch to another branch
+git checkout -b <branch_name> – Create and switch to a new branch
+git merge <branch_name> – Merge a branch into the current branch
+git branch -d <branch_name> – Delete a local branch
+
+Working with Remote Repositories
+git remote add origin <repo_url> – Link local repo to a remote repo
+git push origin <branch_name> – Push local changes to the remote repo
+git pull origin <branch_name> – Pull the latest changes from the remote repo
+git fetch – Fetch changes from the remote repo without merging
+git remote -v – Show remote repository details
+
+Undo & Reset Changes
+git reset --soft HEAD~1 – Undo last commit (keep changes staged)
+git reset --mixed HEAD~1 – Undo last commit (keep changes unstaged)
+git reset --hard HEAD~1 – Undo last commit and discard changes
+git restore <file> – Discard changes in a specific file
+git stash – Save changes temporarily
+git stash pop – Reapply stashed changes
+
+Tagging
+git tag – List all tags
+git tag -a v1.0 -m "Version 1.0" – Create an annotated tag
+git push origin --tags – Push tags to remote
+
+Logs & History
+git log – Show commit history
+git log --oneline – Show brief commit history
+git diff – Show differences in unstaged changes
+git blame <file> – Show who changed each line in a file
+
+Rebasing & Cherry-picking
+git rebase <branch> – Reapply commits on top of another branch
+git cherry-pick <commit_hash> – Apply a specific commit

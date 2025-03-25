@@ -1,0 +1,23 @@
+Basic Commands
+git init – Initialize a new Git repository
+git clone <repo_url> – Clone a remote repository
+git status – Check the status of the working directory
+git add . – Stage all changes
+git commit -m "Your commit message" – Commit staged changes
+
+Branching & Merging
+git branch – List all branches
+git checkout <branch_name> – Switch to another branch
+git checkout -b <branch_name> – Create and switch to a new branch
+git merge <branch_name> – Merge a branch into the current branch
+git branch -d <branch_name> – Delete a local branch
+
+Working with Remote Repositories
+git push origin <branch_name> – Push local changes to the remote repo
+git pull origin <branch_name> – Pull the latest changes from the remote repo
+
+Undo & Reset Changes
+git reset --soft HEAD~1 – Undo last commit (keep changes staged)
+git reset --mixed HEAD~1 – Undo last commit (keep changes unstaged)
+git reset --hard HEAD~1 – Undo last commit and discard changes
+

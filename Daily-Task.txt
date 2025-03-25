@@ -1,0 +1,5 @@
+================= Tasks 24-March-2025 =================
+Rabia   ----------------   Drag & Drop            60%
+Rimsha  ----------------   Add Sections		  50%
+Hamza   ----------------   Dynamic Pages          30%
+Farooq  ----------------   Design Formatting      60%

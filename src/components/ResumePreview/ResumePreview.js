@@ -1,30 +1,27 @@
-import React, { forwardRef } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 
-// Forward the ref to the root element of ResumePreview
-const ResumePreview = forwardRef((props, ref) => {
-  const { fontFamily, fontSize, margin, padding, color, sections } =
-    useSelector((state) => state.resume);
-
-  const style = {
-    fontFamily,
-    fontSize: `${fontSize}px`,
-    margin: `${margin}px`,
-    padding: `${padding}px`,
-    color,
-  };
+const ResumePreview = ({ currentState, updateState }) => {
+  if (!currentState) {
+    return <div>Error: currentState is undefined</div>;
+  }
 
   return (
-    <div ref={ref} className="border p-4" style={style}>
-      <h1 className="text-2xl">Resume Preview</h1>
-      {sections.map((section, index) => (
-        <div key={index}>
-          <h2 className="text-xl">{section}</h2>
-          <p>Details for {section} will go here.</p>
-        </div>
-      ))}
+    <div className="mt-4">
+      <label className="block mb-2">Text Editor</label>
+      <textarea
+        className="w-full border rounded"
+        style={{
+          fontSize: currentState.fontSize || "16px",
+          fontWeight: currentState.fontWeight || "normal",
+          color: currentState.color || "black",
+          margin: `${currentState.margin || 0}px`,
+          padding: `${currentState.padding || 0}px`,
+        }}
+        value={currentState.text || ""}
+        onChange={(e) => updateState({ ...currentState, text: e.target.value })}
+      />
     </div>
   );
-});
+};
 
 export default ResumePreview;

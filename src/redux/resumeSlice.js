@@ -1,17 +1,18 @@
-"use client";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { createSlice } from "@reduxjs/toolkit";
+// Initial state of the resume
+const initialState = {
+  fontFamily: 'Arial',
+  fontSize: 16,
+  margin: 10,
+  padding: 10,
+  color: '#000000',
+  sections: [],  // This stores the sections of the resume
+};
 
-export const resumeSlice = createSlice({
-  name: "resume",
-  initialState: {
-    fontFamily: "Arial",
-    fontSize: 16,
-    margin: 10,
-    padding: 10,
-    color: "#000000",
-    sections: ["Personal Info", "Experience", "Education"],
-  },
+const resumeSlice = createSlice({
+  name: 'resume',
+  initialState,
   reducers: {
     setFontFamily: (state, action) => {
       state.fontFamily = action.payload;
@@ -28,8 +29,11 @@ export const resumeSlice = createSlice({
     setColor: (state, action) => {
       state.color = action.payload;
     },
-    addSection: (state, action) => {
-      state.sections.push(action.payload);
+    addSection: (state) => {
+      state.sections.push({
+        id: Date.now(),  // Unique ID for each section
+        component: 'NewSection',
+      });
     },
   },
 });
@@ -42,7 +46,5 @@ export const {
   setColor,
   addSection,
 } = resumeSlice.actions;
-
-export const selectResume = (state) => state.resume;
 
 export default resumeSlice.reducer;
